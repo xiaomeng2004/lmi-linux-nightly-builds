@@ -40,7 +40,7 @@ jobs:
 
       - name: Choose any SM8250 device in pmbootstrap to build kernel
         run: |
-          cp xiaomi-alioth.cfg ~/.config/pmbootstrap_v3.cfg
+          cp xiaomi-lmi.cfg ~/.config/pmbootstrap_v3.cfg
 
       - name: Compile kernel with envkernel
         run: |
@@ -55,17 +55,17 @@ jobs:
         run: |
           mkdir out
 
-      - name: Build xiaomi-alioth
+      - name: Build xiaomi-lmi
         run: |
-          cp xiaomi-alioth.cfg ~/.config/pmbootstrap_v3.cfg
+          cp xiaomi-lmi.cfg ~/.config/pmbootstrap_v3.cfg
           pmbootstrap install --password 147147
           pmbootstrap export
-          cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-tianma-alioth.img
-          cp /tmp/postmarketOS-export/xiaomi-alioth.img out/rootfs-xiaomi-alioth.img
+          cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-lmi.img
+          cp /tmp/postmarketOS-export/xiaomi-lmi.img out/rootfs-xiaomi-lmi.img
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: xiaomi-alioth
-          path: out/*-alioth.img*
+          name: xiaomi-lmi
+          path: out/*-lmi.img*
           retention-days: 7
