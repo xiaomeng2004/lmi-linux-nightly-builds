@@ -49,7 +49,7 @@ jobs:
           source ../pmbootstrap/helpers/envkernel.sh
           make defconfig sm8250.config
           make -j$(nproc)
-          pmbootstrap build --envkernel linux-postmarketos-qcom-sm8250-alioth
+          pmbootstrap build --envkernel linux-postmarketos-qcom-sm8250-lmi
 
       - name: Create artifact directory
         run: |
